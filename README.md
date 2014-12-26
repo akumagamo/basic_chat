@@ -1,15 +1,24 @@
 # basic-chat-programm
 ## Versionnumber 0.1.1 (2014-12-26) Init 
-socket.io chat
+socket.io chat with different frontends (Backend and Frontends)
 
 ## Features
-...
 
 ## Known Bugs
 none known
 
 ## Roadmap / Future Features
-...
+* mobile template
+* mobile app
+* basic html template
+* js console interface
+* sending message to sms service
+* emoticons / images
+* in memory Message store
+* local Web-DB-Message store
+* login / logout 
+* personal color settings
+* multiple users
 
 ## System Requirement & Prerequisits
 simply node.js installation
