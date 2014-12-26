@@ -38,33 +38,33 @@ https://github.com/akumagamo/basic_chat
 
 ### File / Folder Structure 
 
-   +-+- basic_chat
-     +-+- bin
-     | +- www
-     +-+- libs
-     | +- ...
-     +-+- logs (logfile default folder)
-     | +- ...
-     +-+- node_modules (needed libs etc.)
-     | +- ...
-     +-+- tests
-     | +- ...
-     +-+- public
-     | +- images
-     | +- javascripts
-     | +-+- stylesheets
-     |   +- style.css
-     +-+- routes
-     | +- index.js
-     | +- ...
-     +-+- views
-     | +- error.jade
-     | +- index.jade
-     | +- layout.jade
-     | +- ...
-     +- LICENSE
-     +- readme.md (this document)
-     +- package.json 
+    +-+- basic_chat
+      +-+- bin
+      | +- www
+      +-+- libs
+      | +- ...
+      +-+- logs (logfile default folder)
+      | +- ...
+      +-+- node_modules (needed libs etc.)
+      | +- ...
+      +-+- tests
+      | +- ... 
+      +-+- public
+      | +- images
+      | +- javascripts
+      | +-+- stylesheets
+      |   +- style.css
+      +-+- routes
+      | +- index.js
+      | +- ...
+      +-+- views
+      | +- error.jade
+      | +- index.jade
+      | +- layout.jade
+      | +- ...
+      +- LICENSE
+      +- readme.md (this document)
+      +- package.json 
 	  
 ### API / Commands 
 
