@@ -56,7 +56,7 @@ https://github.com/akumagamo/basic_chat
      |   +- style.css
      +-+- routes
      | +- index.js
-	 | +- ...
+     | +- ...
      +-+- views
      | +- error.jade
      | +- index.jade
