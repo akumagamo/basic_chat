@@ -1,5 +1,5 @@
 # basic-chat-programm
-## Versionnumber 0.1.1 (2014-12-26) Init 
+## Versionnumber 0.1.2 (2014-12-26) Init 
 socket.io chat with different frontends (Backend and Frontends)
 Using nodejs, angular, bootstrap, express(jade), socket.io
 
