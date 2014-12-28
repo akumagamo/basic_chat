@@ -1,8 +1,14 @@
 # basic-chat-programm
 ## Versionnumber 0.1.1 (2014-12-26) Init 
 socket.io chat with different frontends (Backend and Frontends)
+Using nodejs, angular, bootstrap, express(jade), socket.io
 
 ## Features
+* basic html template
+* login / logout 
+* in memory Message store
+* multiple users
+* Text-formating (newline -> br, space -> &nbsp;)
 
 ## Known Bugs
 none known
@@ -10,15 +16,18 @@ none known
 ## Roadmap / Future Features
 * mobile template
 * mobile app
-* basic html template
+* clear up css
+* bootstrap template
+* neat HTML
 * js console interface
 * sending message to sms service
-* emoticons / images
-* in memory Message store
+* emoticons / images 
 * local Web-DB-Message store
-* login / logout 
 * personal color settings
-* multiple users
+* only one User per username
+* security 
+  ** user entering/exiting chat
+  ** password
 
 ## System Requirement & Prerequisits
 simply node.js installation
@@ -75,3 +84,4 @@ https://github.com/akumagamo/basic_chat
 ### External Libs
 * express
 * socket.io
+* bootstrap

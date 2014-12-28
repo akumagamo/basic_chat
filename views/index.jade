@@ -1,5 +1,17 @@
-extends layout
+extends layout-chat
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(data-ng-controller='MessageCtrl as msgCtrl')
+    ul(style='padding:0')
+      li(data-ng-repeat='message in msgCtrl.messages', style='list-style:none;clear:both;display:block;padding-bottom:5px')
+        div(data-ng-if='message.type=="msg"')
+          div(style='font-size:0.8em;font-style:italic;float:left;width:10%') {{message.username}}
+          div(style='float:left;width:90%' data-ng-bind-html='message.message | cleanMessage') 
+          div(style='font-size:0.8em;font-style:italic;') {{message.sendDate}}
+        div(data-ng-if='message.type=="info"', style='font-size:0.8em;color:green;font-style:italic;') {{message.message}}
+    div
+      form(name='createNewMessage', novalidate)
+        textarea(data-ng-model='msgCtrl.newMessage.message')
+        br
+        {{ msgCtrl.newMessage.message.length }}
+        button(data-ng-click='sendNewMessage()', data-ng-show='msgCtrl.isNewMessageValid()') {{dict.message.form.sendButton}} 

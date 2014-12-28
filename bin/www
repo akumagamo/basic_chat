@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 var debug = require('debug')('basic_chat');
 var app = require('../app');
+var server = require('http').Server(app);
 
-app.set('port', process.env.PORT || 3000);
+var socketServer = require('../socket.io')(server);
 
-var server = app.listen(app.get('port'), function() {
-  debug('Express server listening on port ' + server.address().port);
+socketServer.listen(process.env.PORT || 3000, function() {
+  debug('Express server listening on port ' + socketServer.address().port);
 });
+

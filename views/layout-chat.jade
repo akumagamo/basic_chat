@@ -1,0 +1,15 @@
+doctype html
+html(data-ng-app='ChatApp')
+  head
+    title #{title}
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-sanitize.min.js')
+    script(type='text/javascript', src='/javascripts/dict.message.js')
+    script(type='text/javascript', src='/javascripts/app.js')
+    
+  body
+    block content
