@@ -8,7 +8,7 @@ Using nodejs, angular, bootstrap, express(jade), socket.io
 * login / logout
 * in memory Message store
 * multiple users
-* Text-formating (newline -> br, space -> &nbsp;)
+* Text-formating (newline -> br, space -> &amp;nbsp;)
 
 ## Known Bugs
 none known
