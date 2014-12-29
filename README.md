@@ -37,10 +37,11 @@ none known
 only node.js, the rest will be installed from the application
 
 ### Installation
-Download Source from SourceLink and execute "npm install"
-
-### SourceControl Link & Information
-https://github.com/akumagamo/basic_chat
+* Download Source / clone from https://github.com/akumagamo/basic_chat
+* set Enviroment Variables 
+  * for production use: `NODE_ENV` to `production` 
+  * to change Port change `PORT`
+* enter basepath of the source execute "npm install"
 
 ## Documentation
 
