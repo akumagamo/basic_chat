@@ -1,5 +1,5 @@
 # basic-chat-programm
-## Versionnumber 0.1.2 (2014-12-26) Init 
+## Versionnumber 0.1.2 (2014-12-26) Alpha 
 socket.io chat with different frontends (Backend and Frontends)
 Using nodejs, angular, bootstrap, express(jade), socket.io
 
@@ -82,7 +82,7 @@ https://github.com/akumagamo/basic_chat
 #### Usage
 
 * Login as special user add parameter user to the path
-Example: with this link you login as the User //test//
+Example: with this link you login as the User _test_
 
     `http://localhost/?user=test`
  
