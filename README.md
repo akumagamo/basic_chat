@@ -23,13 +23,13 @@ none known
 * personal color settings
 * sending message to sms service
 * security 
-  ** user entering/exiting chat
-  ** password
+  * user entering/exiting chat
+  * password
 * local Web-DB-Message store
 * mobile app
 * deploy - appliacation 
-  ** create account
-  ** create nice/minified-link
+  * create account
+  * create nice/minified-link
 
 ## System Requirement & Prerequisits
 simply node.js installation
@@ -77,14 +77,14 @@ https://github.com/akumagamo/basic_chat
       +- readme.md (this document)
       +- package.json 
 	  
-### API / Commands  / Usage
+### API / Commands / Usage
 
 #### Usage
 
 * Login as special user add parameter user to the path
 Example: with this link you login as the User //test//
 
-    http://localhost/?user=test
+    `http://localhost/?user=test`
  
 
 #### Functions / Modules
