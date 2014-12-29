@@ -31,19 +31,16 @@ none known
   * create account
   * create nice/minified-link
 
-## System Requirement & Prerequisits
-simply node.js installation
+## Prerequisits / System Requirement / Installation
 
-## Usage
+### Prerequisits / System Requirement
+only node.js, the rest will be installed from the application
 
-### Setup
+### Installation
 Download Source from SourceLink and execute "npm install"
 
 ### SourceControl Link & Information
 https://github.com/akumagamo/basic_chat
-
-### Base Code Example
-...
 
 ## Documentation
 
@@ -58,7 +55,7 @@ https://github.com/akumagamo/basic_chat
       | +- ...
       +-+- node_modules (needed libs etc.)
       | +- ...
-      +-+- tests
+      +-+- tests (mocha tests)
       | +- ... 
       +-+- public
       | +- images
