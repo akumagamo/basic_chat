@@ -1,0 +1,90 @@
+<!doctype html>
+<!--  
+    https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d 
+	http://javascript.info/tutorial/animation
+-->
+<html>
+  <head>
+    <title> TestPage </title>
+	<meta charset="utf-8"  />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+		#button{
+			position: absolute;
+			right:10px;
+			width:50px;
+			height:50px;
+			index-z:100px;
+			background-color:red;
+			border-radius: 50%;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		}
+	</style>
+	<script>
+	var OFFSET_BASE = 20;
+	var TICK = 5;
+	var DURATION = 500;
+	
+	var elem;
+	var button;
+	
+	var move = 0;
+	var stopMove = false;
+	
+	window.onload = function (){
+		elem = document.getElementById("container");
+		button = document.getElementById("button");
+		
+		elem.onscroll = function(){
+			stopMove = true;
+			clearTimeout(move);
+			move = setTimeout(moveButton, 200);
+		}
+		
+		function moveButton(){
+			var runTime = 0;
+			stopMove = false;
+			var animationsId = setInterval(
+				function(){
+					var newPosition = (OFFSET_BASE - elem.scrollTop);
+					var currentPosition = parseInt(button.style.bottom);
+					var scrollingDown = currentPosition > newPosition;
+					var distance = Math.abs(currentPosition + newPosition);
+					
+					var elapsedTime = runTime/DURATION;
+					
+					// here adapt animation
+					var stepSize = (elapsedTime < 0.3)? 10 :
+										(elapsedTime < 0.6)? 2 : 1;
+					
+					var step = stepSize * (scrollingDown? -1 : 1);
+
+					button.style.bottom = currentPosition + step + "px";				
+					
+					if(stopMove || newPosition == currentPosition ){
+						clearInterval(animationsId);
+					}
+					runTime += TICK;
+				}
+			, TICK);
+		}
+	}
+		
+	</script>
+  </head>
+  <body>
+    <div id="container" style="height:300px;overflow:auto;position:absolute">
+	<div id="button" style="bottom:10px;"></div>
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	</div>
+  </body>
+</html>
