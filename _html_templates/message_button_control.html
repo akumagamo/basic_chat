@@ -22,16 +22,40 @@
 			height:100%;
 			z-index:10;
 			overflow:auto;
+			background-color:#E5E4E2;
+		}
+		
+		.editor {
+			position:absolute;
+			left:10px;
+			height:70px;
+			background-color:white;
+			
+			width:100%;
+			z-index:90;
+		}
+		
+		#editorText{
+			position:absolute;
+			right:90px;
 		}
 	
 		.action-button {
 			position: absolute;
-			right:10px;
+			right:20px;
 			width:50px;
 			height:50px;
-			z-index:100;
+			
 			background-color:red;
 			border-radius: 50%;
+			user-select:none;
+			-webkit-user-select:none;
+			
+			z-index:100;
+		}
+		
+		.action-button div{
+			margin:14px 0 0 13px;
 		}
 		
 		.material-level-1{
@@ -72,27 +96,28 @@
 			height:44px;
 		}
 		
-		.action-button div{
-			margin:14px 0 0 13px;
-		}
+
 		
 	</style>
 	<script>
 	var OFFSET_BASE = 20;
 	var button;
 	var menu;
+	var editor;
+	var isEditorVisible = false;
 	
 	window.onload = function (){
 		var container = document.getElementById("container");
 		button = document.getElementById("button");
 		menu = document.getElementById("menu");
-		
+		editor = document.getElementById("editor");
 		
 		button.style.bottom = OFFSET_BASE +"px";
 		button.className = button.className.replace(/hidden/gi,"");
 		
 		container.onscroll = function(){
 			button.style.bottom = (OFFSET_BASE - container.scrollTop) +"px";
+			editor.style.bottom = (OFFSET_BASE - 10 - container.scrollTop) +"px";
 			menu.style.top = container.scrollTop + "px";
 			console.info(menu.style.top);
 		}
@@ -108,21 +133,37 @@
 		button.addEventListener("mouseout", actionButtonUnPress, false);
 		button.addEventListener("mouseover", actionButtonHover, false);
 
+		button.addEventListener("click", toggleEditor, false);
+	}
+	
+	function toggleEditor(){
+		if(isEditorVisible){
+		
+		}else{
+		
+		}
+	}
+	
+	function removeMaterialCssClass(elem){
+		elem.className = elem.className.replace(/\s(material-level-\d+)/gi,"")
 	}
 	
 	function actionButtonPress(e){
 		e.stopPropagation();
+		removeMaterialCssClass(button);
 		button.className += " material-level-2";
 	}
 	
 	function actionButtonHover(e){
 		e.stopPropagation();
+		removeMaterialCssClass(button);
 		button.className += " material-level-4";
 	}
 	
 	function actionButtonUnPress(e){
 		e.stopPropagation();
-		button.className = button.className.replace(/\s(material-level-\d+)/gi,"") + " material-level-3";
+		removeMaterialCssClass(button);
+		button.className += " material-level-3";
 	}
 	
 	</script>
@@ -132,6 +173,9 @@
 	<div id="container" class="messages-list">
 		<div class="padding"></div>
 		<div id="menu" class="menu material-level-1"></div>
+		<div id="editor" class="editor material-level-2">
+			<input id="editorText" class="" type="text"/>
+		</div>
 		<div id="button" class="action-button material-level-3 hidden" ><div class="icon-communication-white icon-communication-white-ic_message_white_24dp"></div></div>
 		111111 11111111111 111111111111 111111111<br />123456789 123456789 123456789<br />
 		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
