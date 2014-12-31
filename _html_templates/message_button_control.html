@@ -146,7 +146,7 @@
 		container.onscroll = function(){
 			actionButtonEditor.style.bottom = (OFFSET_BASE - container.scrollTop) +"px";
 			menu.style.top = container.scrollTop + "px";
-			console.info(menu.style.top);
+			toggleEditor(false);
 		}
 		
 		button.addEventListener("touchstart", actionButtonPress, false);
@@ -167,8 +167,8 @@
 		container.onscroll();
 	}
 	
-	function toggleEditor(){
-		if(isEditorVisible){
+	function toggleEditor(status){
+		if(status === false || isEditorVisible){
 			removeMaterialCssClass(actionButtonEditor);
 			actionButtonEditor.className = actionButtonEditor.className.replace(/\sedit/gi,"");
 		}else{
