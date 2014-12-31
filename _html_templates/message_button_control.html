@@ -51,7 +51,7 @@
 			padding-left:10px;
 		}
 		
-		.editor input{
+		.editor textarea{
 			height:50px;
 			width:100%;
 			margin-top:20px;
@@ -59,8 +59,10 @@
 			border:none;
 			border-right:1px solid #E5E4E2;
 			
-			font-size:40px;
-			line-height:50px;
+			font-size:1.2em;
+			line-height:1.2em;
+			
+			resize: none;
 		}
 		
 		.action-button {	
@@ -174,7 +176,7 @@
 		}else{
 			actionButtonEditor.className += " edit material-level-3";
 		}
-		isEditorVisible = !isEditorVisible;
+		isEditorVisible = !(status===false || isEditorVisible);
 	}
 	
 	function removeMaterialCssClass(elem){
@@ -209,7 +211,7 @@
 		<div id="actionButtonEditor" class="action-button-editor">
 			<div id="actionButton" class="action-button hidden" ><div class="icon"></div></div>
 			<div id="editor" class="editor">
-				<input id="editorText" class="" type="text"/>
+				<textarea id="editorText" class="" ></textarea>
 			</div>
 		</div>
 		111111 11111111111 111111111111 111111111<br />123456789 123456789 123456789<br />
