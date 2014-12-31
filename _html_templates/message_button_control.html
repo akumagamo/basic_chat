@@ -8,7 +8,6 @@
     <title> TestPage </title>
 	<meta charset="utf-8"  />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="stylesheets/sprite-communication-white.css" rel="stylesheet" />
 	<style>
 	
 		* {
@@ -25,24 +24,50 @@
 			background-color:#E5E4E2;
 		}
 		
-		.editor {
-			position:absolute;
-			left:10px;
-			height:70px;
-			background-color:white;
-			
-			width:100%;
-			z-index:90;
+		.messages-list .padding{
+			height:44px;
 		}
 		
-		#editorText{
+		.action-button-editor {
 			position:absolute;
-			right:90px;
+			right:15px;
+			height:90px;
+			width:100%;
+			line-height:90px;
+			
+		}		
+		
+		.action-button-editor.edit{
+			background-color:white;
 		}
-	
-		.action-button {
-			position: absolute;
-			right:20px;
+		
+		.action-button-editor.edit .editor{
+			display:block;
+		}
+		
+		.editor {
+			display:none;
+			float:right;
+			padding-left:10px;
+		}
+		
+		.editor input{
+			height:50px;
+			width:100%;
+			margin-top:20px;
+			padding-left:10px;
+			border:none;
+			border-right:1px solid #E5E4E2;
+			
+			font-size:40px;
+			line-height:50px;
+		}
+		
+		.action-button {	
+			margin:20px 10px 20px 20px;
+			
+			float:right;
+			
 			width:50px;
 			height:50px;
 			
@@ -53,9 +78,17 @@
 			
 			z-index:100;
 		}
-		
-		.action-button div{
+
+		.action-button .icon{
+			background-image: url('images/sprite-communication-white.png');
 			margin:14px 0 0 13px;
+			background-position: -107px -141px;
+			width: 24px;
+			height: 24px;
+		}
+		
+		.edit .action-button .icon{
+			background-position: -107px -107px;
 		}
 		
 		.material-level-1{
@@ -92,32 +125,26 @@
 			background-color:red;
 		}
 		
-		.padding{
-			height:44px;
-		}
 		
-
 		
 	</style>
 	<script>
-	var OFFSET_BASE = 20;
-	var button;
+	var OFFSET_BASE = 10;
+	var actionButton;
+	var actionButtonEditor;
 	var menu;
 	var editor;
 	var isEditorVisible = false;
 	
 	window.onload = function (){
 		var container = document.getElementById("container");
-		button = document.getElementById("button");
-		menu = document.getElementById("menu");
+		actionButtonEditor = document.getElementById("actionButtonEditor");
+		button = document.getElementById("actionButton");
 		editor = document.getElementById("editor");
-		
-		button.style.bottom = OFFSET_BASE +"px";
-		button.className = button.className.replace(/hidden/gi,"");
+		menu = document.getElementById("menu");
 		
 		container.onscroll = function(){
-			button.style.bottom = (OFFSET_BASE - container.scrollTop) +"px";
-			editor.style.bottom = (OFFSET_BASE - 10 - container.scrollTop) +"px";
+			actionButtonEditor.style.bottom = (OFFSET_BASE - container.scrollTop) +"px";
 			menu.style.top = container.scrollTop + "px";
 			console.info(menu.style.top);
 		}
@@ -134,14 +161,20 @@
 		button.addEventListener("mouseover", actionButtonHover, false);
 
 		button.addEventListener("click", toggleEditor, false);
+		
+		editor.style.width = screen.availWidth - 115 +"px";
+		button.className = button.className.replace(/hidden/gi,"");
+		container.onscroll();
 	}
 	
 	function toggleEditor(){
 		if(isEditorVisible){
-		
+			removeMaterialCssClass(actionButtonEditor);
+			actionButtonEditor.className = actionButtonEditor.className.replace(/\sedit/gi,"");
 		}else{
-		
+			actionButtonEditor.className += " edit material-level-3";
 		}
+		isEditorVisible = !isEditorVisible;
 	}
 	
 	function removeMaterialCssClass(elem){
@@ -173,10 +206,12 @@
 	<div id="container" class="messages-list">
 		<div class="padding"></div>
 		<div id="menu" class="menu material-level-1"></div>
-		<div id="editor" class="editor material-level-2">
-			<input id="editorText" class="" type="text"/>
+		<div id="actionButtonEditor" class="action-button-editor">
+			<div id="actionButton" class="action-button hidden" ><div class="icon"></div></div>
+			<div id="editor" class="editor">
+				<input id="editorText" class="" type="text"/>
+			</div>
 		</div>
-		<div id="button" class="action-button material-level-3 hidden" ><div class="icon-communication-white icon-communication-white-ic_message_white_24dp"></div></div>
 		111111 11111111111 111111111111 111111111<br />123456789 123456789 123456789<br />
 		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
 		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
