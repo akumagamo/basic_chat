@@ -9,82 +9,144 @@
 	<meta charset="utf-8"  />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<style>
-		#button{
+	
+		* {
+			padding:0;
+			margin:0;
+		}
+		
+		.messages-list{
+			position:absolute;
+			width:100%;
+			height:100%;
+			z-index:10;
+			overflow:auto;
+		}
+	
+		.action-button {
 			position: absolute;
 			right:10px;
 			width:50px;
 			height:50px;
-			index-z:100px;
+			z-index:100;
 			background-color:red;
 			border-radius: 50%;
+		}
+		
+		.material-level-1{
+			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		}
+		
+		.material-level-2{
 			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 		}
+		
+		.material-level-3{
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+		}
+		
+		.material-level-4{
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		}
+		
+		.material-level-5{
+			box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+		}
+		
+		.hidden{
+			display:none;
+			visibility:hidden;
+		}
+		
+		.menu{
+			position:absolute;
+			top:0;
+			z-index:100;
+			height:44px;
+			width:100%;		
+			background-color:red;
+		}
+		
+		.padding{
+			height:44px;
+		}
+		
 	</style>
 	<script>
 	var OFFSET_BASE = 20;
-	var TICK = 5;
-	var DURATION = 500;
-	
-	var elem;
 	var button;
-	
-	var move = 0;
-	var stopMove = false;
+	var menu;
 	
 	window.onload = function (){
-		elem = document.getElementById("container");
+		var container = document.getElementById("container");
 		button = document.getElementById("button");
+		menu = document.getElementById("menu");
 		
-		elem.onscroll = function(){
-			stopMove = true;
-			clearTimeout(move);
-			move = setTimeout(moveButton, 200);
+		
+		button.style.bottom = OFFSET_BASE +"px";
+		button.className = button.className.replace(/hidden/gi,"");
+		
+		container.onscroll = function(){
+			button.style.bottom = (OFFSET_BASE - container.scrollTop) +"px";
+			menu.style.top = container.scrollTop + "px";
+			console.info(menu.style.top);
 		}
 		
-		function moveButton(){
-			var runTime = 0;
-			stopMove = false;
-			var animationsId = setInterval(
-				function(){
-					var newPosition = (OFFSET_BASE - elem.scrollTop);
-					var currentPosition = parseInt(button.style.bottom);
-					var scrollingDown = currentPosition > newPosition;
-					var distance = Math.abs(currentPosition + newPosition);
-					
-					var elapsedTime = runTime/DURATION;
-					
-					// here adapt animation
-					var stepSize = (elapsedTime < 0.3)? 10 :
-										(elapsedTime < 0.6)? 2 : 1;
-					
-					var step = stepSize * (scrollingDown? -1 : 1);
+		button.addEventListener("touchstart", actionButtonPress, false);
+		button.addEventListener("touchend", actionButtonUnPress, false);
+		button.addEventListener("touchcancel", actionButtonUnPress, false);
+		button.addEventListener("touchleave", actionButtonUnPress, false);
+		button.addEventListener("touchmove", actionButtonUnPress, false);
+		
+		button.addEventListener("mousedown", actionButtonPress, false);
+		button.addEventListener("mouseup", actionButtonUnPress, false);
+		button.addEventListener("mouseout", actionButtonUnPress, false);
+		button.addEventListener("mouseover", actionButtonHover, false);
 
-					button.style.bottom = currentPosition + step + "px";				
-					
-					if(stopMove || newPosition == currentPosition ){
-						clearInterval(animationsId);
-					}
-					runTime += TICK;
-				}
-			, TICK);
-		}
 	}
-		
+	
+	function actionButtonPress(e){
+		e.stopPropagation();
+		button.className += " material-level-2";
+	}
+	
+	function actionButtonHover(e){
+		e.stopPropagation();
+		button.className += " material-level-4";
+	}
+	
+	function actionButtonUnPress(e){
+		e.stopPropagation();
+		button.className = button.className.replace(/\s(material-level-\d+)/gi,"") + " material-level-3";
+	}
+	
 	</script>
   </head>
-  <body>
-    <div id="container" style="height:300px;overflow:auto;position:absolute">
-	<div id="button" style="bottom:10px;"></div>
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
-	</div>
+  <body>	
+  <div id="content" class="content">
+	<div id="container" class="messages-list">
+		<div class="padding"></div>
+		<div id="menu" class="menu material-level-1"></div>
+		<div id="button" class="action-button material-level-3 hidden" ></div>
+		111111 11111111111 111111111111 111111111<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+		123456789 123456789 123456789 12345<br />123456789 123456789 123456789<br />
+	</div></div>
   </body>
 </html>
