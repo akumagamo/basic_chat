@@ -144,6 +144,7 @@
 		actionButtonEditor = document.getElementById("actionButtonEditor");
 		button = document.getElementById("actionButton");
 		editor = document.getElementById("editor");
+		editorText = document.getElementById("editorText");
 		menu = document.getElementById("menu");
 		
 		container.onscroll = function(){
@@ -174,8 +175,11 @@
 		if(status === false || isEditorVisible){
 			removeMaterialCssClass(actionButtonEditor);
 			actionButtonEditor.className = actionButtonEditor.className.replace(/\sedit/gi,"");
+			editorText.blur();
+			
 		}else{
 			actionButtonEditor.className += " edit material-level-3";
+			editorText.focus();
 		}
 		isEditorVisible = !(status===false || isEditorVisible);
 	}
