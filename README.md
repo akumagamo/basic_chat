@@ -25,9 +25,9 @@ none known
 * security 
   * user entering/exiting chat
   * password
-* local Web-DB-Message store
+* local Web-DB-Message store / SQLite
 * mobile app
-* deploy - appliacation 
+* deploy - appliaction 
   * create account
   * create nice/minified-link
 
