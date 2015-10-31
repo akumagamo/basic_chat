@@ -35,6 +35,7 @@ none known
 * deploy - appliaction 
     * create account
     * create nice/minified-link
+* add some tests
 
 ## System Requirement & Prerequisites
 only node.js, the rest will be installed from the application
