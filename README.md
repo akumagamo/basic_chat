@@ -1,7 +1,12 @@
 # basic-chat-programm
-## Versionnumber 0.1.2 (2014-12-26) Alpha 
-socket.io chat with different frontends (Backend and Frontends)
-Using nodejs, angular, bootstrap, express(jade), socket.io
+## Versionnumber 0.1.2 (2014-12-26) Beta
+(Documentation last update 2015-10-31 14:40)  
+ 
+basic socket.io chat (Backend and Frontends)
+Using nodejs, angular, bootstrap, express(jade), socket.io  
+
+![Basic Chat Screenshot](https://raw.githubusercontent.com/akumagamo/node-basic-chat/master/readme/basic-chat-screenshot.png "Basic Chat Screenshot")  
+
 
 ## Features
 * basic html template
@@ -17,31 +22,34 @@ none known
 * only one User per username
 * clear up css / html (jade-template)
 * bootstrap template
-* mobile template
+    * mobile template
 * js console interface
 * emoticons / images 
 * personal color settings
 * sending message to sms service
 * security 
-  * user entering/exiting chat
-  * password
+    * user entering/exiting chat
+    * password
 * local Web-DB-Message store / SQLite
 * mobile app
 * deploy - appliaction 
-  * create account
-  * create nice/minified-link
+    * create account
+    * create nice/minified-link
 
-## Prerequisits / System Requirement / Installation
-
-### Prerequisits / System Requirement
+## System Requirement & Prerequisites
 only node.js, the rest will be installed from the application
 
-### Installation
+## Usage
+
+### Setup
 * Download Source / clone from https://github.com/akumagamo/basic_chat
 * set Enviroment Variables 
   * for production use: `NODE_ENV` to `production` 
   * to change Port change `PORT`
 * enter basepath of the source execute "npm install"
+
+### SourceControl Link & Information
+https://github.com/akumagamo/basic_chat.git
 
 ## Documentation
 
@@ -79,15 +87,11 @@ only node.js, the rest will be installed from the application
 
 #### Usage
 
-* Login as special user add parameter user to the path
+* *"Login"* as special user add parameter user to the path
 Example: with this link you login as the User _test_
 
-    `http://localhost/?user=test`
+    `http://<hostname>:<port>/?user=test`
  
-
-#### Functions / Modules
-
-#### Classes
 
 ### External Libs
 * express
