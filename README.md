@@ -64,7 +64,7 @@ https://github.com/akumagamo/basic_chat.git
       +-+- node_modules (needed libs etc.)
       | +- ...
       +-+- public
-      | +- images
+      | +-+- images
       | +-+- javascripts
       | | +- app.js
       | | +- dict.message.js
