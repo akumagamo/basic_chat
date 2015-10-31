@@ -1,6 +1,6 @@
 # basic-chat-programm
 ## Versionnumber 0.1.2 (2014-12-26) Beta
-(Documentation last update 2015-10-31 14:40)  
+*(Documentation last update 2015-10-31 14:40)*   
  
 basic socket.io chat (Backend and Frontends)
 Using nodejs, angular, bootstrap, express(jade), socket.io  
@@ -58,30 +58,32 @@ https://github.com/akumagamo/basic_chat.git
     +-+- basic_chat
       +-+- bin
       | +- www
-      +-+- libs
-      | +- ...
       +-+- logs (logfile default folder)
       | +- ...
       +-+- node_modules (needed libs etc.)
       | +- ...
-      +-+- tests (mocha tests)
-      | +- ... 
       +-+- public
       | +- images
-      | +- javascripts
+      | +-+- javascripts
+      | | +- app.js
+      | | +- dict.message.js
       | +-+- stylesheets
       |   +- style.css
+      +-+- readme (media for this document)
+	  | +- basic-chat-screenshot.png
       +-+- routes
       | +- index.js
-      | +- ...
       +-+- views
       | +- error.jade
       | +- index.jade
       | +- layout.jade
-      | +- ...
+      | +- layout-chat.jade
+      +- app.js
       +- LICENSE
-      +- readme.md (this document)
       +- package.json 
+      +- readme.md (this document)
+	  +- socket.io.js 
+      
 	  
 ### API / Commands / Usage
 
