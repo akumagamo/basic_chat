@@ -1,6 +1,6 @@
 # basic-chat-programm
 ## Versionnumber 0.1.2 (2014-12-26) Beta
-*(Documentation last update 2015-10-31 14:40)*   
+*(Documentation last update 2016-01-11 13:50)*   
  
 basic socket.io chat (Backend and Frontends)
 Using nodejs, angular, bootstrap, express(jade), socket.io  
